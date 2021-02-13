@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2020/12/12 17:10
 # @Author  : my_name_is_BUG
-# @FileName: plsr.py
+# @FileName: CARS.py
 # @Software: PyCharm
 # @Cnblogs ：https://blog.csdn.net/qq2512446791
 import numpy as np
@@ -145,41 +145,38 @@ def CARS_Cloud(X, y, N=50, f=20, cv=10):
     boindex = np.where(Optimal != 0)
     OptWave = boindex[0]
 
-    # fig = plt.figure()
-    # plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
-    # plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
-    # fonts = 16
-    # plt.subplot(211)
-    # plt.xlabel('蒙特卡洛迭代次数', fontsize=fonts)
-    # plt.ylabel('被选择的波长数量', fontsize=fonts)
-    # plt.title('最佳迭代次数：' + str(MinIndex) + '次', fontsize=fonts)
-    # plt.plot(np.arange(N), WaveNum)
+    fig = plt.figure()
+    plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+    plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+    fonts = 16
+    plt.subplot(211)
+    plt.xlabel('蒙特卡洛迭代次数', fontsize=fonts)
+    plt.ylabel('被选择的波长数量', fontsize=fonts)
+    plt.title('最佳迭代次数：' + str(MinIndex) + '次', fontsize=fonts)
+    plt.plot(np.arange(N), WaveNum)
 
-    # plt.subplot(212)
-    # plt.xlabel('蒙特卡洛迭代次数', fontsize=fonts)
-    # plt.ylabel('RMSECV', fontsize=fonts)
-    # plt.plot(np.arange(N), RMSECV)
+    plt.subplot(212)
+    plt.xlabel('蒙特卡洛迭代次数', fontsize=fonts)
+    plt.ylabel('RMSECV', fontsize=fonts)
+    plt.plot(np.arange(N), RMSECV)
 
     # # plt.subplot(313)
     # # plt.xlabel('蒙特卡洛迭代次数', fontsize=fonts)
     # # plt.ylabel('各变量系数值', fontsize=fonts)
     # # plt.plot(COEFF)
     # #plt.vlines(MinIndex, -1e3, 1e3, colors='r')
-    # plt.show()
+    plt.show()
 
     return OptWave
 
 if __name__ == "__main__":
     import scipy.io as scio
     import pandas as pd
-    data_path = r"G:\PAPER\data\不区分品种产地\预处理\1.0_outlier\D1.csv"
-    y_path = r"G:\PAPER\data\不区分品种产地\outlier\1.0_outlier.csv"
-    data = pd.read_csv(data_path)
-    data = data.drop(['Unnamed: 0'], axis=1)
-    data_ = pd.read_csv(y_path)
-    y_ = data_.loc[:,"水分 %"]
-    y = y_[np.isnan(y_) == False].values
-    X = data.values[np.isnan(y_) == False, :]
+    data_path = r"D1.csv"
+    y_path = r"outlier.csv"
+    data = pd.read_csv(data_path)y
+    y = pd.read_csv(y_path)
+    X = data
     print(CARS_Cloud(X, y))
 
 
