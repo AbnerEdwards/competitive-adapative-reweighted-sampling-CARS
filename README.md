@@ -7,7 +7,8 @@ CARS算法的具体过程如下。
    ![image-20210730111928657](https://gitee.com/aBugsLife/imgReponsitory/raw/master/img/image-20210730111928657.png)
 
    w_i=|b_i|/\sum_{i=1}^m|b_i|
-    m为每次采样中剩余的变量数。
+   
+   m为每次采样中剩余的变量数。
 2. 利用指数衰减函数（exponentially decreasing function， EDF）强行去除回归系数绝对值权重相对较小的波长。在第i次基于MC采样建立PLS模型时，根据EDF得到保留的波长点的比例R_i为
 
    ![image-20210730112026278](https://gitee.com/aBugsLife/imgReponsitory/raw/master/img/image-20210730112026278.png)
