@@ -6,10 +6,13 @@
 # @Cnblogs ：https://blog.csdn.net/qq2512446791
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib import font_manager as fm, rcParams
 from sklearn.cross_decomposition import PLSRegression
 from sklearn.model_selection import KFold
 from sklearn.metrics import mean_squared_error
 import copy
+
+
 def PC_Cross_Validation(X, y, pc, cv):
     '''
         x :光谱矩阵 nxm
@@ -174,7 +177,7 @@ if __name__ == "__main__":
     import pandas as pd
     data_path = r"D1.csv"
     y_path = r"outlier.csv"
-    data = pd.read_csv(data_path)y
+    data = pd.read_csv(data_path)
     y = pd.read_csv(y_path)
     X = data
     print(CARS_Cloud(X, y))
